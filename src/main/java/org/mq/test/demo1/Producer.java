@@ -1,5 +1,5 @@
 
-package org.lrz.test.demo1;
+package org.mq.test.demo1;
 
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;

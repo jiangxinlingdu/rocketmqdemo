@@ -1,8 +1,6 @@
 
-package org.lrz.test.demo1;
+package org.mq.test.demo1;
 
-import java.io.UnsupportedEncodingException;
-import java.util.List;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyContext;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
@@ -10,6 +8,8 @@ import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
 import org.apache.rocketmq.common.message.MessageExt;
+
+import java.util.List;
 
 /**
  * Consumer，订阅消息
@@ -37,11 +37,11 @@ public class Consumer {
 
             @Override
             public ConsumeConcurrentlyStatus consumeMessage(List<MessageExt> msgs,
-                ConsumeConcurrentlyContext context) {
+                                                            ConsumeConcurrentlyContext context) {
                 try {
-                    for(MessageExt msg:msgs){
+                    for (MessageExt msg : msgs) {
                         String msgbody = new String(msg.getBody(), "utf-8");
-                        System.out.printf(Thread.currentThread().getName()+"  MessageBody: "+ msgbody + " Receive New Messages: " + msg + "%n");
+                        System.out.printf(Thread.currentThread().getName() + "  MessageBody: " + msgbody + " Receive New Messages: " + msg + "%n");
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
